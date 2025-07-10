@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/book_shop.css">
+    <title>Book Shop</title>
+</head>
+
+<body onload="onInit()">
+    <header>
+        <h1>Book Shop</h1>
+    </header>
+
+    <section class="book-filter">
+
+        <h2>Filter</h2>
+
+        <select class="filter-book-name" onchange="onSetFilterBy({title: this.value})">
+            <option value="">All Books</option>
+        </select>
+
+        <label>Select Rating:</label>
+        <select class="rating-book" onchange="onSetFilterBy({rating: this.value})">
+            <option value="0">All Ratings</option>
+        </select>
+
+        <button onclick="onClearFilter()">Clear Filter</button>
+
+        <label>Price: <span class="price-display">0</span></label>
+        <input type="range" min="0" max="500" value="0" onchange="onPriceChange(this.value)">
+    </section>
+
+    <div class="sorting-section">
+        <label>Sort by:</label>
+        <select class="sort-by" onchange="onSetSortBy(this.value)">
+            <option value="title">Title</option>
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+        </select>
+
+        <label>
+            <input type="radio" name="sortDir" value="1" onchange="onSetSortDir(1)" checked>
+            Ascending
+        </label>
+
+        <label>
+            <input type="radio" name="sortDir" value="-1" onchange="onSetSortDir(-1)">
+            Descending
+        </label>
+
+        <button class="clear-filter-btn" onclick="onClearFilter()">Reset</button>
+
+    </div>
+
+    <main>
+        <button onclick="onAddBook()">Add Book</button>
+        <table>
+            <tr>
+                <th class="title">Title</th>
+                <th class="price">Price</th>
+                <th class="rating">Rating</th>
+                <th class="action">Action</th>
+            </tr>
+            <tbody class="books_list">
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button onclick="onPrevPage()">Previous</button>
+            <span class="page-info">Page 1 of 1</span>
+            <button onclick="onNextPage()">Next</button>
+        </div>
+
+    </main>
+
+    <div class="adding-book-modal">
+        <button class="close-btn" onclick="onCloseModal()">✕</button>
+        <h2>📚 Add New Book</h2>
+
+        <form>
+            <input class="title" type="text" placeholder="📖 Book Title" required>
+            <input class="price" type="number" min="0" max="500" placeholder="💰 Price" required>
+            <input class="rating" type="number" min="1" max="5" placeholder="⭐ Rating (1-5)" required>
+
+            <div class="actions">
+                <button type="button" class="save-btn" onclick="onSaveModal()">💾 Save Book</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="update-book-modal">
+        <button class="close-btn" onclick="onCloseModal()">✕</button>
+        <h2>📚 Update Book</h2>
+
+        <form>
+            <input class="title" type="text" placeholder="📖 Book Title" required>
+            <input class="price" type="number" min="0" max="500" placeholder="💰 Price" required>
+            <input class="rating" type="number" min="1" max="5" placeholder="⭐ Rating (1-5)" required>
+
+            <div class="actions">
+                <button type="button" class="save-btn" onclick="onUpdateModal()">💾 Update Book</button>
+            </div>
+        </form>
+    </div>
+
+    <dialog>
+
+    </dialog>
+
+    <div class="modal">
+        <h3></h3>
+        <h4>Book Price: <span></span></h4>
+        <h5>Book Rating: <span></span></h5>
+        <p></p>
+        <button onclick="onCloseModal()">Close</button>
+    </div>
+
+    <div class="user-msg"></div>
+
+    <footer>
+        <p>Copyrights 2025</p>
+        <section class="stats">
+            <span>Total:</span>
+            <span class="total-todos"></span>
+        </section>
+    </footer>
+
+    <script src="js/services/util.servce.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>
