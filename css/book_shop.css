@@ -6,9 +6,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-
-
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
 }
 
 header,
@@ -16,10 +17,15 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5vh;
-    /* max-height: 5vh; */
-    padding-inline: 1rem;
-    background-color: lightsteelblue;
+    height: 80px;
+    padding-inline: 2rem;
+    background-color: #4682b4;
+    color: white;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
 }
 
 header {
@@ -28,6 +34,10 @@ header {
 
 main {
     flex-grow: 1;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 main>form {
@@ -37,62 +47,187 @@ main>form {
 }
 
 
+.book-filter {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr auto auto 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4682b4;
+}
+
+.book-filter h2 {
+    margin: 0;
+    margin-right: 20px;
+    color: #4682b4;
+    font-size: 1.3rem;
+}
+
+.book-filter select,
+.book-filter input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.book-filter label {
+    font-weight: bold;
+    color: #333;
+}
+
+.price-display {
+    background-color: #4682b4;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+
+.sorting-section {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4682b4;
+}
+
+.sorting-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.sorting-section select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
 table {
     border-collapse: collapse;
     width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
 }
 
 th,
 td {
-    border: 1px solid #ccc;
-    padding: 8px;
+    border: 1px solid #ddd;
+    padding: 15px;
     text-align: center;
 }
 
 th {
-    background-color: #f0f0f0;
+    background-color: #4682b4;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e6f3ff;
+}
+
 
 button {
-    padding: 5px 10px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 3px;
-    margin: 2px;
+    border-radius: 5px;
+    margin: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-.book-filter {
-    display: flex;
+button:hover {
+    opacity: 0.9;
+}
+
+td button:nth-child(1) {
+    background-color: #4682b4;
+    color: white;
+}
+
+td button:nth-child(2) {
+    background-color: #ffa500;
+    color: white;
+}
+
+td button:nth-child(3) {
+    background-color: #dc143c;
+    color: white;
+}
+
+main>button {
+    background-color: #32cd32;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.pagination {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 15px;
     align-items: center;
+    justify-items: center;
+    margin: 30px 0;
     padding: 15px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    margin: 10px 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.book-filter h2 {
-    margin-right: 20px;
+.pagination button {
+    background-color: #4682b4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
-.sorting-section {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    padding: 15px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin: 10px 0;
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
+
+.page-info {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
 
 .modal {
-    background-color: #111;
-    color: #ccc;
-    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 400px;
+    min-width: 450px;
     max-width: 500px;
     width: 90%;
     text-align: center;
@@ -100,113 +235,46 @@ button {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     display: none;
+    border: 3px solid #4682b4;
 }
 
 .modal.open {
     display: block;
-
 }
 
 .modal h3 {
-    color: #c0f0ff;
+    color: #87ceeb;
     text-decoration: underline;
     text-transform: capitalize;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
 }
 
-.modal h4 span {
-    color: #c0f0ff;
-}
-
+.modal h4 span,
 .modal h5 span {
-    color: #c0f0ff;
+    color: #87ceeb;
 }
 
 .modal>p {
     text-align: left;
+    line-height: 1.5;
+    margin: 15px 0;
 }
 
-.adding-book-modal {
-    background-color: #ffffff;
-    color: #333;
-    padding: 25px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 450px;
-    width: 90%;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
-    border: 3px solid #4caaae;
-}
-
-.adding-book-modal.open {
-    display: block;
-}
-
-.adding-book-modal h2 {
-    color: #4caaae;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #4caaae;
-    padding-bottom: 10px;
-}
-
-.adding-book-modal .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: #ff4444;
+.modal button {
+    background-color: #4682b4;
     color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.adding-book-modal input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.adding-book-modal input:focus {
-    border-color: #4caaae;
-    outline: none;
-}
-
-.adding-book-modal .actions {
-    margin-top: 20px;
-}
-
-.adding-book-modal .save-btn {
-    background-color: #4caaae;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.adding-book-modal .save-btn:hover {
-    background-color: #4caaae;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
 }
 
 
+.adding-book-modal,
 .update-book-modal {
-    background-color: #ffffff;
+    background-color: white;
     color: #333;
-    padding: 25px;
+    padding: 30px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -218,25 +286,27 @@ button {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     display: none;
-    border: 3px solid #4caaae;
+    border: 3px solid #4682b4;
 }
 
+.adding-book-modal.open,
 .update-book-modal.open {
     display: block;
 }
 
+.adding-book-modal h2,
 .update-book-modal h2 {
-    color: #4caaae;
+    color: #4682b4;
     margin-bottom: 20px;
-    border-bottom: 2px solid #4caaae;
-    padding-bottom: 10px;
+    font-size: 1.5rem;
 }
 
+.adding-book-modal .close-btn,
 .update-book-modal .close-btn {
     position: absolute;
     top: 10px;
     right: 15px;
-    background: #ff4444;
+    background: #dc143c;
     color: white;
     border: none;
     width: 30px;
@@ -246,6 +316,7 @@ button {
     font-weight: bold;
 }
 
+.adding-book-modal input,
 .update-book-modal input {
     width: 100%;
     padding: 12px;
@@ -256,17 +327,14 @@ button {
     box-sizing: border-box;
 }
 
-.update-book-modal input:focus {
-    border-color: #4caaae;
-    outline: none;
-}
-
+.adding-book-modal .actions,
 .update-book-modal .actions {
     margin-top: 20px;
 }
 
+.adding-book-modal .save-btn,
 .update-book-modal .save-btn {
-    background-color: #4caaae;
+    background-color: #32cd32;
     color: white;
     padding: 12px 30px;
     border: none;
@@ -276,41 +344,27 @@ button {
     font-weight: bold;
 }
 
-.update-book-modal .save-btn:hover {
-    background-color: #4caaae;
-}
-
-
 
 .user-msg {
     position: fixed;
-    color: #f0f0f0;
+    color: white;
     bottom: -100px;
-    right: 10px;
-    background-color: #111;
-    padding: 10px;
+    right: 20px;
+    background-color: #32cd32;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .user-msg.open {
-    bottom: 10px;
+    bottom: 20px;
     transition: bottom .5s;
 }
 
 
-footer .total-todos,
-footer .active-todos {
-    margin-inline-end: 1rem;
-}
-
-.book-filter {
-    padding: 10px 10px;
-    border: none;
-    border-radius: 3px;
-    margin: 2px;
-}
-
 .clear-filter-btn {
-    background-color: #e74c3c;
+    background-color: #dc143c;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -318,9 +372,51 @@ footer .active-todos {
     cursor: pointer;
     font-weight: bold;
     font-size: 14px;
-    transition: background-color 0.3s;
 }
 
 .clear-filter-btn:hover {
-    background-color: #c0392b;
+    background-color: #b71c1c;
+}
+
+
+footer {
+    background-color: #4682b4;
+    color: white;
+    margin-top: 2rem;
+}
+
+footer .total-todos,
+footer .active-todos {
+    margin-inline-end: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .book-filter {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .sorting-section {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .pagination {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
 }
