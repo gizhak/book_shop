@@ -249,7 +249,8 @@ function onRead(booksId) {
     el.querySelector('h3').innerText = book.title
     el.querySelector('h5 span').innerText = book.rating
     el.querySelector('h4 span').innerText = book.price
-    el.querySelector('p').innerText = book.desc + '!!'
+    el.querySelector('img').src = book.imgUrl
+    // el.querySelector('p').innerText = book.desc + '!!'
     el.classList.add('open')
 }
 
