@@ -125,7 +125,7 @@ function _createBook(bookName, addPrice, addRating) {
         title: bookName,
         price: addPrice,
         rating: addRating,
-        imgUrl: 'img/book1.jpg',
+        imgUrl: 'https://m.media-amazon.com/images/I/81CrlNtDe4L._SY342_.jpg',
         desc: makeLorem(),
     }
 
